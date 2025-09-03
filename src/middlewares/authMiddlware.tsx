@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const authMiddleware = async (request: NextRequest) => {
     const currentPath = request.nextUrl.pathname;
     const user = await userLoader();
-    const protectedRoutes = [];
+    const protectedRoutes = ["/profile"];
 
     if (
         protectedRoutes.some((route) => currentPath.startsWith(route)) &&
